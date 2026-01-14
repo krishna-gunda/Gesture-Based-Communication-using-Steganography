@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>LSB Stego (web) — Encrypt / Decrypt with Gesture</title>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>LSB Steganography — Passcode + Gesture</h1>
+    <div class="cols">
+      <div class="card">
+        <h2>Encrypt</h2>
+        <label>Cover image (png/jpg)</label>
+        <input id="cover" type="file" accept="image/png, image/jpeg"/>
+        <label>Secret message</label>
+        <input id="message" type="text" placeholder="Your secret message" />
+        <label>Passcode</label>
+        <input id="pass_enc" type="password" placeholder="Enter passcode"/>
+        <div class="gesture-row">
+          <button id="startCamEnc">Open webcam (capture)</button>
+          <button id="captureEnc" disabled>Capture snapshot</button>
+          <span id="gestureEnc">gesture: —</span>
+        </div>
+        <video id="videoEnc" autoplay playsinline style="display:none"></video>
+        <canvas id="canvasEnc" style="display:none"></canvas>
+        <button id="encryptBtn">Encrypt & Download</button>
+        <div id="encStatus" class="status"></div>
+      </div>
+
+      <div class="card">
+        <h2>Decrypt</h2>
+        <label>Stego image (png/jpg)</label>
+        <input id="stego" type="file" accept="image/png, image/jpeg"/>
+        <label>Passcode</label>
+        <input id="pass_dec" type="password" placeholder="Enter passcode"/>
+        <div class="gesture-row">
+          <button id="startCamDec">Open webcam (capture)</button>
+          <button id="captureDec" disabled>Capture snapshot</button>
+          <span id="gestureDec">gesture: —</span>
+        </div>
+        <video id="videoDec" autoplay playsinline style="display:none"></video>
+        <canvas id="canvasDec" style="display:none"></canvas>
+        <button id="decryptBtn">Decrypt</button>
+        <div id="decStatus" class="status"></div>
+      </div>
+    </div>
+    <p class="note">Run locally (http://127.0.0.1:5000). Allow webcam. Keep the hand inside the central area of the snapshot when capturing gesture.</p>
+  </div>
+  <script src="/static/js/main.js"></script>
+</body>
+</html>
